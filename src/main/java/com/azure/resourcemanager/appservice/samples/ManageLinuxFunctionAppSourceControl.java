@@ -28,7 +28,7 @@ import java.time.Duration;
  */
 public class ManageLinuxFunctionAppSourceControl {
 
-    private static final String FUNCTION_APP_PACKAGE_URL = "https://raw.githubusercontent.com/Azure/azure-sdk-for-java/master/sdk/resourcemanager/azure-resourcemanager-appservice/src/test/resources/java-functions.zip";
+    private static final String FUNCTION_APP_PACKAGE_URL = "https://raw.githubusercontent.com/Azure/azure-sdk-for-java/main/sdk/resourcemanager/azure-resourcemanager-appservice/src/test/resources/java-functions.zip";
     private static final long TIMEOUT_IN_SECONDS = 5 * 60;
 
     /**
@@ -59,7 +59,7 @@ public class ManageLinuxFunctionAppSourceControl {
                     .withNewResourceGroup(rgName)
                     .withNewLinuxAppServicePlan(plan1Name, PricingTier.STANDARD_S1)
                     .withBuiltInImage(FunctionRuntimeStack.JAVA_8)
-                    .withNewStorageAccount(storage1Name, StorageAccountSkuType.STANDARD_RAGRS)
+                    .withNewStorageAccount(storage1Name, StorageAccountSkuType.STANDARD_LRS)
                     .withHttpsOnly(true)
                     .withAppSetting("WEBSITE_RUN_FROM_PACKAGE", FUNCTION_APP_PACKAGE_URL)
                     .create();
